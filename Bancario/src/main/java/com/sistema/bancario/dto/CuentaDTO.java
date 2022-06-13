@@ -1,35 +1,30 @@
-package com.sistema.bancario.models;
+package com.sistema.bancario.dto;
 
-import javax.persistence.*;
+import com.sistema.bancario.models.Cliente;
+import com.sistema.bancario.models.CuentaId;
+import com.sistema.bancario.models.Cuentapk;
+
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "cuenta")
-public class Cuenta {
+public class CuentaDTO {
 
-
-    @EmbeddedId
     private Cuentapk cuentapk;
 
-    @Column(name = "fdesde", nullable = false)
     private Timestamp fdesde;
 
-    @Column(name = "tipocuenta",nullable = false)
     private String tipocuenta;
 
-    @Column(name = "saldoinicial")
     private BigDecimal saldoinicial;
 
-    @Column(name = "estado",nullable = false)
     private boolean estado;
 
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "clienteid")
     private Cliente cliente;
 
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ccuenta", insertable = false, updatable = false)
     private CuentaId ccuenta;
 
     public Cuentapk getCuentapk() {

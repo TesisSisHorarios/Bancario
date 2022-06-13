@@ -1,32 +1,30 @@
-package com.sistema.bancario.models;
+package com.sistema.bancario.dto;
 
-import javax.persistence.*;
+import com.sistema.bancario.models.CuentaId;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "movimiento")
-public class Movimiento {
+public class MovimientoDTO {
 
-    @Id
-    @Column(name = "cmovimiento")
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer cmovimiento;
 
-    @Column(name = "fecha")
     private Timestamp fecha;
 
-    @Column(name = "tipomovimiento", length = 1)
+    @NotEmpty(message = "El movmiento debe tener un tipo movimiento: D=Debito o C=Credito")
+    @Size(min = 1, max = 1,message = "El movmiento debe tener un tipo movimiento: D=Debito o C=Credito")
+    @Pattern(regexp = "[C-D]", message = "El tipo movimiento debe ser: D=Debito o C=Credito")
     private String tipomovimiento;
 
-    @Column(name = "valor")
+    @NotEmpty(message = "El movimiento debe tener un valor")
     private BigDecimal valor;
 
-    @Column(name = "saldo")
     private BigDecimal saldo;
 
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ccuenta")
+    @NotEmpty(message = "El movimiento debe tener una cuenta")
     private CuentaId cuenta;
 
     public Integer getCmovimiento() {

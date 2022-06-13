@@ -1,39 +1,221 @@
-curl --location --request POST 'http://localhost:8080/cliente/save' \
---header 'Content-Type: application/json' \
---data-raw '{"contrasena": "1234","estado": true,  "nombre": "Jose Lema",  "genero": "M",  "identificaion": "0105341770",  "edad": "32",  "direccion": "Otavalo sn y principal",  "telefono":"098254785"}'
 
 curl --location --request POST 'http://localhost:8080/cliente/save' \
 --header 'Content-Type: application/json' \
---data-raw '{"contrasena": "5678","estado": true,  "nombre": "Marianela Montalvo",  "genero": "M",  "identificaion": "0105341770",  "edad": "32",  "direccion": "Amazonas y NNUU",  "telefono":"097548965"}'
+--data-raw '{
+    "nombre": "Jose Lema",
+    "genero": "H",
+    "identificaion": "0105341770",
+    "edad": 32,
+    "direccion": "Otavalo sn y principal",
+    "telefono": "098254785",
+    "contrasena": "1234",
+    "estado": true
+}'
+
 
 curl --location --request POST 'http://localhost:8080/cliente/save' \
 --header 'Content-Type: application/json' \
---data-raw '{"contrasena": "1245","estado": true,  "nombre": "Juan Osorio",  "genero": "M",  "identificaion": "0105341770",  "edad": "32",  "direccion": "13 junio y Equinoccial",  "telefono":"098874587"}'
+--data-raw '{
+    "nombre": "Marianela Montalvo",
+    "genero": "H",
+    "identificaion": "0105341771",
+    "edad": 32,
+    "direccion": "Amazonas y NNUU",
+    "telefono": "097548965",
+    "contrasena": "5678",
+    "estado": true
+}'
 
-curl --location --request POST 'http://localhost:8080/cueta/save' \
+
+curl --location --request POST 'http://localhost:8080/cliente/save' \
 --header 'Content-Type: application/json' \
---data-raw '{"ccuenta": "478758","tipocuenta": "Ahorro",  "saldoinicial": "0", "estado":true, "clienteid":{"cleinteid": "9","contrasena": "1234","estado": true,  "nombre": "Jose Lema",  "genero": "M",  "identificaion": "0105341770",  "edad": "32",  "direccion": "Otavalo sn y principal",  "telefono":"098254785"}}'
+--data-raw '{
+    "nombre": "Juan Osorio ",
+    "genero": "H",
+    "identificaion": "0105341772",
+    "edad": 32,
+    "direccion": "13 junio y Equinoccial",
+    "telefono": "098874587",
+    "contrasena": "1245",
+    "estado": true
+}'
+
+--------------------------------------------CUENTAS
+curl --location --request POST 'http://localhost:8080/cuenta/save' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "ccuenta": {"ccuenta":"478758"},
+    "tipocuenta": "Ahorro",
+    "saldoinicial": "0",
+    "estado": true,
+    "cliente": {
+    "cpersona": 39,
+    "nombre": "Jose Lema",
+    "genero": "H",
+    "identificaion": "0105341770",
+    "edad": 32,
+    "direccion": "Otavalo sn y principal",
+    "telefono": "098254785",
+    "contrasena": "1234",
+    "estado": true
+}
+}'
+
 
 curl --location --request POST 'http://localhost:8080/cuenta/save' \
 --header 'Content-Type: application/json' \
---data-raw '{"ccuenta": "496825","tipocuenta": "Ahorros",  "saldoinicial": "0", "estado":true, "cliente":{"cpersona": "10","contrasena": "5678","estado": true,  "nombre": "Marianela Montalvo",  "genero": "M",  "identificaion": "0105341770",  "edad": "32",  "direccion": "Amazonas y NNUU",  "telefono":"097548965"}}'
+--data-raw '{
+    "ccuenta": {"ccuenta":"225487"},
+    "tipocuenta": "Corriente",
+    "saldoinicial": "0",
+    "estado": true,
+    "cliente": {
+        "cpersona": 40,
+        "nombre": "Marianela Montalvo",
+        "genero": "H",
+        "identificaion": "0105341771",
+        "edad": 32,
+        "direccion": "Amazonas y NNUU",
+        "telefono": "097548965",
+        "contrasena": "5678",
+        "estado": true
+    }
+}'
+
 
 curl --location --request POST 'http://localhost:8080/cuenta/save' \
 --header 'Content-Type: application/json' \
---data-raw '{"ccuenta": "496825","tipocuenta": "Ahorros",  "saldoinicial": "0", "estado":true, "cliente":{"cpersona": "10","contrasena": "5678","estado": true,  "nombre": "Marianela Montalvo",  "genero": "M",  "identificaion": "0105341770",  "edad": "32",  "direccion": "Amazonas y NNUU",  "telefono":"097548965"}}'
+--data-raw '{
+    "ccuenta": {"ccuenta":"495878"},
+    "tipocuenta": "Ahorros",
+    "saldoinicial": "0",
+    "estado": true,
+    "cliente": {
+        "cpersona": 41,
+        "nombre": "Juan Osorio ",
+        "genero": "H",
+        "identificaion": "0105341772",
+        "edad": 32,
+        "direccion": "13 junio y Equinoccial",
+        "telefono": "098874587",
+        "contrasena": "1245",
+        "estado": true
+    }
+}'
+
 
 curl --location --request POST 'http://localhost:8080/cuenta/save' \
 --header 'Content-Type: application/json' \
---data-raw '{"ccuenta": "495878","tipocuenta": "Ahorros",  "saldoinicial": "0", "estado":true, "cliente":{"cpersona": "10","contrasena": "1245","estado": true,  "nombre": "Juan Osorio",  "genero": "M",  "identificaion": "0105341770",  "edad": "32",  "direccion": "13 junio y Equinoccial",  "telefono":"098874587"}}'
+--data-raw '{
+    "ccuenta": {"ccuenta":"496825"},
+    "tipocuenta": "Ahorros",
+    "saldoinicial": "0",
+    "estado": true,
+    "cliente": {
+        "cpersona": 40,
+        "nombre": "Marianela Montalvo",
+        "genero": "H",
+        "identificaion": "0105341771",
+        "edad": 32,
+        "direccion": "Amazonas y NNUU",
+        "telefono": "097548965",
+        "contrasena": "5678",
+        "estado": true
+    }
+}'
 
-curl --location --request GET 'http://localhost:8080/movimientos/save?ccuenta=478758&valor=2000'
 
-curl --location --request GET 'http://localhost:8080/movimientos/save?ccuenta=225487&valor=100'
+curl --location --request POST 'http://localhost:8080/cuenta/save' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "ccuenta": {"ccuenta":"585545"},
+    "tipocuenta": "Corriente",
+    "saldoinicial": "0",
+    "estado": true,
+    "cliente": {
+        "cpersona": 39,
+        "nombre": "Jose Lema",
+        "genero": "H",
+        "identificaion": "0105341770",
+        "edad": 32,
+        "direccion": "Otavalo sn y principal",
+        "telefono": "098254785",
+        "contrasena": "1234",
+        "estado": true
+    }
+}'
 
-curl --location --request GET 'http://localhost:8080/movimientos/save?ccuenta=496825&valor=540'
+------------------------------------Movimientos
 
-curl --location --request GET 'http://localhost:8080/movimientos/save?ccuenta=495878&valor=150'
+curl --location --request POST 'http://localhost:8080/movimientos/save?ccuenta=478758&valor=2000'
 
-curl --location --request GET 'http://localhost:8080/movimientos/save?ccuenta=225487&valor=600'
+curl --location --request POST 'http://localhost:8080/movimientos/save?ccuenta=225487&valor=100'
 
-curl --location --request GET 'http://localhost:8080/movimientos/save?ccuenta=478758&valor=-575'
+curl --location --request POST 'http://localhost:8080/movimientos/save?ccuenta=496825&valor=540'
+
+curl --location --request POST 'http://localhost:8080/movimientos/save?ccuenta=585545&valor=1000'
+
+curl --location --request POST 'http://localhost:8080/movimientos/save?ccuenta=478758&valor=-575'
+
+curl --location --request POST 'http://localhost:8080/movimientos/save?ccuenta=225487&valor=600'
+
+curl --location --request POST 'http://localhost:8080/movimientos/save?ccuenta=495878&valor=150'
+
+curl --location --request POST 'http://localhost:8080/movimientos/save?ccuenta=496825&valor=540'
+
+
+
+----------------------------------Estados de cuenta
+
+curl --location --request GET 'http://localhost:8080/movimientos/estadocuenta?ccuenta=225487&fecha1=2022-06-12&fecha2=2022-06-13'
+
+
+[
+    {
+        "fecha": "2022-06-12",
+        "cliente": "Marianela Montalvo",
+        "nummerocuenta": 225487,
+        "tipo": "Corriente",
+        "saldoinicial": 100.00,
+        "estado": true,
+        "movimiento": 100.00,
+        "saldodisponible": 100.00
+    },
+    {
+        "fecha": "2022-06-12",
+        "cliente": "Marianela Montalvo",
+        "nummerocuenta": 225487,
+        "tipo": "Corriente",
+        "saldoinicial": 100.00,
+        "estado": true,
+        "movimiento": 600.00,
+        "saldodisponible": 700.00
+    }
+]
+
+
+curl --location --request GET 'http://localhost:8080/movimientos/estadocuenta?ccuenta=496825&fecha1=2022-06-12&fecha2=2022-06-13'
+
+
+[
+    {
+        "fecha": "2022-06-12",
+        "cliente": "Marianela Montalvo",
+        "nummerocuenta": 496825,
+        "tipo": "Ahorros",
+        "saldoinicial": 540.00,
+        "estado": true,
+        "movimiento": 540.00,
+        "saldodisponible": 540.00
+    },
+    {
+        "fecha": "2022-06-12",
+        "cliente": "Marianela Montalvo",
+        "nummerocuenta": 496825,
+        "tipo": "Ahorros",
+        "saldoinicial": 540.00,
+        "estado": true,
+        "movimiento": 540.00,
+        "saldodisponible": 1080.00
+    }
+]

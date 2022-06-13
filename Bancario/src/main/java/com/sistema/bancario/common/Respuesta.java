@@ -1,4 +1,4 @@
-package com.sistema.bancario.models;
+package com.sistema.bancario.common;
 
 public class Respuesta {
 

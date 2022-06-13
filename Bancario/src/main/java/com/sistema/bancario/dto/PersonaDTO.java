@@ -1,33 +1,20 @@
-package com.sistema.bancario.models;
+package com.sistema.bancario.dto;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "persona", uniqueConstraints = { @UniqueConstraint(columnNames = { "identificaion" }) })
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Persona {
+public class PersonaDTO {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "cpersona")
     private Integer cpersona;
 
-    @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "genero",length = 1)
     private String genero;
 
-    @Column(name = "identificaion",length = 10)
     private String identificaion;
 
-    @Column(name = "edad")
     private Integer edad;
 
-    @Column(name = "direccion")
     private String direccion;
 
-    @Column(name = "telefono",length = 10)
     private String telefono;
 
     public Integer getCpersona() {
