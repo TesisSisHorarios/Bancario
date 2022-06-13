@@ -51,36 +51,7 @@ public class MovimientoService {
                 if (cuentaOptional.isPresent()) {
                     Cuenta cuenta = cuentaOptional.get();
                     movimiento(cuenta, valor);
-                    /*Movimiento movimiento = new Movimiento();
-                    BigDecimal saldo = getSaldo(ccuenta);
-                    if (valor.compareTo(BigDecimal.valueOf(0))<0){
-                        if (validarRetiroDiario(ccuenta,valor)){
-                            if (saldo.compareTo(BigDecimal.valueOf(0))==0){
-                                correcto=false;
-                                mensaje="Saldo no disponible";
-                            }else{
-                                debitoCredito(movimiento,valor,cuenta,"D");
-                                if(movimiento.getSaldo().compareTo(BigDecimal.valueOf(0))>=0){
-                                    movimientoRepository.save(movimiento);
-                                    correcto=true;
-                                    mensaje="Transacción realizada correctamente";
-                                }else{
-                                    correcto=false;
-                                    mensaje="Saldo no puede ser negativo";
-                                }
-                            }
-                        }else{
-                            correcto=false;
-                            mensaje="Cupo diario Excedido";
-                        }
-
-                    }else {
-                        debitoCredito(movimiento,valor,cuenta,"C");
-                        movimientoRepository.save(movimiento);
-
-                        correcto=true;
-                        mensaje="Transacción realizada correctamente";
-                    }*/
+                    
                 } else {
                     correcto = false;
                     mensaje = "Cuenta no Existe";
